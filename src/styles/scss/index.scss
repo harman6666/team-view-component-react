@@ -1,0 +1,29 @@
+@import url(//fonts.googleapis.com/css?family=Droid+Sans);
+/* Common CSS across the application */
+
+html, body {
+  background: url('../../img/teamBirds_collage.jpg') no-repeat center center fixed;
+  background-size: auto 100%;
+  font-family: 'Droid Sans', sans-serif !important;
+  max-width: 1200px; 
+  margin: 0 auto;
+}
+
+ul{
+  padding: 0;
+} 
+ul li { 
+  list-style: none;
+} 
+
+/* Variables */
+$primaryColor: #007672;
+$secondaryColor: #e2f4ea;
+$tertiaryColor: #999999;
+$crossColor: #ffb469;
+$whiteColor: #fff;
+$blackColor: #000;
+
+@import '../../components/WelcomePage/WelcomePage';
+@import '../../components/TeamView/TeamView';
+@import '../../components/PageNotFound/PageNotFound'; 

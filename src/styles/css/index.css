@@ -1,0 +1,394 @@
+@import url(//fonts.googleapis.com/css?family=Droid+Sans);
+/* Common CSS across the application */
+html, body {
+  background: url("../../img/teamBirds_collage.jpg") no-repeat center center fixed;
+  background-size: auto 100%;
+  font-family: 'Droid Sans', sans-serif !important;
+  max-width: 1200px;
+  margin: 0 auto; }
+
+ul {
+  padding: 0; }
+
+ul li {
+  list-style: none; }
+
+/* Variables */
+.welcome-page {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  width: 600px;
+  margin: 40px auto;
+  padding: 15px 25px; }
+  .welcome-page h1 {
+    color: #007672;
+    font-weight: bold;
+    font-size: 45px; }
+  .welcome-page .ref-text {
+    font-size: 20px;
+    color: #007672;
+    font-weight: bold;
+    width: 100%;
+    line-height: 30px;
+    margin: 20px auto; }
+
+@media (min-width: 768px) {
+  .button {
+    padding: 20px 38px;
+    font-size: 30px; }
+
+  .welcome-page .next-page {
+    width: auto; }
+
+  .ref-text {
+    width: 550px; }
+
+  .welcome__page h1 {
+    font-size: 60px; } }
+.button {
+  border: 0;
+  cursor: pointer;
+  outline: 0;
+  -webkit-appearance: none;
+  display: inline-block;
+  position: relative;
+  padding: 10px 35px;
+  font-size: 16px;
+  top: 0;
+  border-radius: 4px;
+  border-bottom: 1px solid rgba(0, 118, 114, 0.5);
+  background: #007672;
+  color: #fff;
+  box-shadow: 0px 0px 0px rgba(15, 165, 60, 0.1);
+  transform: translateZ(0);
+  transition: all 0.2s ease; }
+  .button:active {
+    top: 0px;
+    box-shadow: 0px 0px 0px rgba(15, 165, 60, 0);
+    background: #14e085; }
+  .button:hover {
+    color: #fff;
+    text-decoration: none;
+    top: -10px;
+    box-shadow: 0px 10px 10px rgba(15, 165, 60, 0.2);
+    transform: rotateX(20deg); }
+
+.welcome-page .next-page {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px; }
+
+/* Whole styling of team view for both Native and Advance modules. */
+.team-view-wrapper {
+  margin: 8em auto;
+  /* Used mobile-first approach and below media-query will only run when we have a screen size of
+  768px and above. We can use bootstrap mixins also but due to some issue fetching the mixins i was not 
+  able to use that(taking this as enhancement). */ }
+  .team-view-wrapper .component-header {
+    margin: 10px 0 8px; }
+    .team-view-wrapper .component-header .heading {
+      font-size: 0.8em;
+      color: #999999;
+      text-transform: uppercase;
+      font-weight: bold;
+      padding-top: 7px; }
+  .team-view-wrapper .team-page {
+    text-align: right;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    color: #999999; }
+    .team-view-wrapper .team-page > div {
+      float: right;
+      height: 30px;
+      padding: 4px 10px 0; }
+      .team-view-wrapper .team-page > div:hover {
+        background-color: #e2f4ea;
+        cursor: pointer; }
+    .team-view-wrapper .team-page img {
+      height: 20px; }
+  .team-view-wrapper .team-view {
+    border: 1px solid #e2f4ea;
+    border-top: 3px solid #007672;
+    background-color: white; }
+  .team-view-wrapper .select-box {
+    box-shadow: 0px 6px 23px -1px rgba(0, 0, 0, 0.45);
+    background: rgba(183, 190, 216, 0.6);
+    top: 0;
+    position: relative; }
+  .team-view-wrapper .show-all-btn {
+    background-color: #e2f4ea;
+    text-align: center;
+    height: 40px;
+    padding: 7px 0;
+    cursor: pointer; }
+    .team-view-wrapper .show-all-btn i {
+      border: solid black;
+      border-width: 0 1px 1px 0;
+      display: inline-block;
+      padding: 7px;
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg); }
+  .team-view-wrapper .no-data {
+    display: none; }
+    .team-view-wrapper .no-data.active {
+      display: block; }
+  .team-view-wrapper .overflow-hidden {
+    height: 300px;
+    overflow: hidden; }
+  .team-view-wrapper .add-btn, .team-view-wrapper .close-btn {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    cursor: pointer; }
+  .team-view-wrapper .add-btn {
+    position: relative;
+    left: 0;
+    top: 3px;
+    background: #e2f4ea; }
+    .team-view-wrapper .add-btn:before, .team-view-wrapper .add-btn:after {
+      background: #007672; }
+    .team-view-wrapper .add-btn:before {
+      transform: rotate(90deg); }
+    .team-view-wrapper .add-btn:after {
+      transform: rotate(180deg); }
+  .team-view-wrapper .close-btn {
+    opacity: 0;
+    position: absolute;
+    left: 12px;
+    top: 10px;
+    border: 1px solid #ffb469;
+    background: #fff;
+    color: #ffb469;
+    font-size: 20px; }
+    .team-view-wrapper .close-btn:hover::before {
+      width: 0px;
+      height: 0px;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid #fff;
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 22px;
+      top: -12px;
+      left: 8px;
+      z-index: 3; }
+    .team-view-wrapper .close-btn:hover::after {
+      content: 'Remove user';
+      position: absolute;
+      top: -38px;
+      left: -32px;
+      width: 100px;
+      height: 27px;
+      -webkit-box-shadow: 0px 6px 23px -1px rgba(0, 0, 0, 0.45);
+      box-shadow: 0px 6px 23px -1px rgba(0, 0, 0, 0.45);
+      background: #fff;
+      padding: 3px 10px;
+      font-size: 13px;
+      z-index: 2; }
+  .team-view-wrapper .team-item:hover {
+    background-color: #e2f4ea; }
+    .team-view-wrapper .team-item:hover .close-btn {
+      position: absolute;
+      height: 41px;
+      opacity: 1; }
+    .team-view-wrapper .team-item:hover .add-btn {
+      background: #fff; }
+  .team-view-wrapper .add-btn:before,
+  .team-view-wrapper .add-btn:after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    top: 50%;
+    margin-top: -1px;
+    width: 60%;
+    left: 8px;
+    height: 2px; }
+  .team-view-wrapper .team-list .team-item {
+    padding: 0 10px; }
+  .team-view-wrapper .team-list .add-client-wrapper {
+    padding: 7px 8px;
+    height: 60px; }
+  .team-view-wrapper .client-avatar {
+    height: 100%;
+    vertical-align: middle;
+    padding: 0 10px; }
+    .team-view-wrapper .client-avatar img {
+      height: 40px; }
+  .team-view-wrapper .client-info {
+    margin-top: 12px;
+    line-height: 18px;
+    font-size: 15px; }
+    .team-view-wrapper .client-info .client-name {
+      font-weight: bold; }
+  .team-view-wrapper .add-label {
+    position: absolute;
+    top: 12px;
+    left: 64px;
+    width: 150px;
+    line-height: 19px;
+    font-weight: bold;
+    margin-top: 0; }
+  .team-view-wrapper .PowerSelect__Clear:before {
+    color: #ffb469; }
+  .team-view-wrapper .PowerSelect__Trigger {
+    margin-top: 0;
+    height: 45px; }
+  .team-view-wrapper .PowerSelect__TriggerInput {
+    border-bottom: 1px solid green;
+    margin-left: 16px; }
+  .team-view-wrapper .no-data.active {
+    position: absolute;
+    top: 53px;
+    height: 76px;
+    border-radius: 2px;
+    box-shadow: 1px 20px 26px -9px rgba(0, 0, 0, 0.45);
+    width: calc(100% - 2px);
+    background: white;
+    z-index: 1;
+    padding: 0 6px;
+    left: 1px;
+    vertical-align: middle;
+    text-align: center;
+    padding-top: 10px; }
+    .team-view-wrapper .no-data.active .not-found-text {
+      font-weight: bold;
+      color: #7ab7b5; }
+  .team-view-wrapper .native-select-box {
+    -webkit-appearance: button;
+    -webkit-border-radius: 2px;
+    -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    -webkit-padding-end: 20px;
+    -webkit-padding-start: 2px;
+    -webkit-user-select: none;
+    background-image: url(../../img/arrow.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+    background-position: 97% center;
+    background-repeat: no-repeat;
+    border: 1px solid #AAA;
+    color: #555;
+    font-size: inherit;
+    margin: 7px 15px 6px 15px;
+    overflow: hidden;
+    padding: 5px 10px;
+    text-overflow: ellipsis;
+    position: relative;
+    width: calc(100% - 30px);
+    top: -1px; }
+    .team-view-wrapper .native-select-box option {
+      background-color: #E5E5E5; }
+  .team-view-wrapper .prev-page {
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translateY(-50%); }
+  .team-view-wrapper .prev-button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #007672;
+    color: black;
+    border-radius: 50%; }
+    .team-view-wrapper .prev-button:hover {
+      color: #fff;
+      text-decoration: none; }
+  @media (min-width: 768px) {
+    .team-view-wrapper .close-btn {
+      top: 17px; }
+    .team-view-wrapper .team-list {
+      height: auto; }
+      .team-view-wrapper .team-list .team-item {
+        padding: 8px 10px; }
+      .team-view-wrapper .team-list .add-client-wrapper {
+        height: 76px; }
+    .team-view-wrapper .component-header {
+      margin: 15px 0 8px; }
+      .team-view-wrapper .component-header .heading {
+        font-size: 1.2em;
+        padding-top: 0; }
+      .team-view-wrapper .component-header .team-page span {
+        display: inline-block !important; }
+    .team-view-wrapper .native-select-box {
+      margin: 10px 10px 10px 15px;
+      top: 0; }
+    .team-view-wrapper .prev-page {
+      left: 50px;
+      top: 50%; }
+    .team-view-wrapper .add-btn {
+      top: 10px; }
+    .team-view-wrapper .add-label {
+      top: 19px; }
+    .team-view-wrapper .PowerSelect__Trigger {
+      margin-top: 10px;
+      height: 45px; } }
+
+/* .PowerSelect__Tether will only append in the body when we click on the advance dropdown.
+  So, that's why this is in global */
+.PowerSelect__Tether {
+  box-shadow: 0px 6px 6px -1px rgba(0, 0, 0, 0.45);
+  background: rgba(183, 190, 216, 0.6); }
+  .PowerSelect__Tether .PowerSelect__Option {
+    padding: 9px 12px; }
+    .PowerSelect__Tether .PowerSelect__Option .client-avatar {
+      height: 30px;
+      margin-right: 10px; }
+    .PowerSelect__Tether .PowerSelect__Option:not(.PowerSelect__Option--disabled):hover {
+      background-color: #e2f4ea; }
+  .PowerSelect__Tether .PowerSelect__Menu {
+    border-top: none; }
+  .PowerSelect__Tether .PowerSelect__Option--highlighted {
+    background-color: #e2f4ea; }
+
+.page-not-found {
+  -webkit-box-shadow: -5px 20px 30px 8px rgba(0, 0, 0, 0.45);
+  -moz-box-shadow: -5px 20px 30px 8px rgba(0, 0, 0, 0.45);
+  box-shadow: -5px 20px 30px 8px rgba(0, 0, 0, 0.45);
+  background: rgba(183, 190, 216, 0.6);
+  text-align: center;
+  padding-bottom: 25px;
+  width: 80%;
+  margin: 10em auto; }
+  .page-not-found h2 {
+    color: #fff;
+    line-height: 1;
+    letter-spacing: 2px;
+    font-weight: 300;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.6);
+    margin-bottom: 0;
+    font-size: 3rem;
+    padding-top: 2rem; }
+  .page-not-found h3 {
+    color: #fff;
+    letter-spacing: 3px;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.6);
+    font-size: 2.8em; }
+  .page-not-found p {
+    font-size: .9em;
+    color: #fff;
+    text-transform: capitalize;
+    letter-spacing: 5px;
+    margin: 1em 0 4em;
+    font-weight: 300; }
+  .page-not-found button {
+    background-color: #f8b333;
+    border: none;
+    color: #fff;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer; }
+    .page-not-found button a {
+      text-decoration: none;
+      color: #fff; }
+  @media (min-width: 768px) {
+    .page-not-found {
+      width: 55%;
+      margin: 3em auto; }
+      .page-not-found h2 {
+        font-size: 13em;
+        padding-top: 0; } }
+
+/*# sourceMappingURL=index.css.map */
