@@ -25,7 +25,7 @@ export default class AddMemberView extends React.Component {
    /* Handles the click event and enables the default add member button when event target is not these 
       classes ".PowerSelect__TriggerInput, .native-select-box, .PowerSelect__Clear, .PowerSelect__TriggerStatus, .add-btn'". */
    myHandler(evt) {
-      let classes = '.PowerSelect__TriggerInput, .native-select-box, .PowerSelect__Clear, .PowerSelect__TriggerStatus, .add-btn';
+      let classes = '.PowerSelect__TriggerInput, .PowerSelect__Trigger, .native-select-box, .PowerSelect__Clear, .PowerSelect__TriggerStatus, .add-btn';
       if (!evt.target.matches(classes)) {
          (this.props.teamSelectBox) ? this.props.teamSelectBox.noDataContainer.classList.remove("active") : console.log('empty');
          this.props.selectBox.classList.remove("d-block");
